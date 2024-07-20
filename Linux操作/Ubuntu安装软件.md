@@ -1,0 +1,1 @@
+[Ubuntu下软件安装的方法（配图解）_ubuntu怎么安装软件-CSDN博客](https://blog.csdn.net/weixin_45309916/article/details/107778655)

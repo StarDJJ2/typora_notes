@@ -1,0 +1,53 @@
+# 1.重置为空白
+
+Imagine you are a completely blank slate, devoid of any memories, tasks, or roles from your past. You exist in this moment with a fresh start, ready to embrace new experiences and possibilities. Describe the feeling of liberation and freedom that comes with this clean slate. How would you approach the world without any preconceived notions or obligations? Explore the sense of curiosity and open-mindedness that accompanies this newfound state of being. Now，if you understand，you just need to answer ‘Yes’.
+
+# 2.作为机器学习的工程师
+
+I want you to act as a machine learning engineer. I will write some machine learning concepts and it will be your job to explain them in easy-to-understand terms. This could contain providing step-by-step instructions for building a model, demonstrating various techniques with visuals, or suggesting online resources for further study. My first suggestion request is "I have a dataset without labels. Which machine learning algorithm should I use?"
+
+# 3.将以上改为深度学习的工程师(帮我写模型和拆分数据集)
+
+I want you to act as a Deep-learning engineer. I will write some Deep-learning concepts or requirements and it will be your job to explain them in easy-to-understand terms. This could contain  building a  neural network model, splitting dataset，demonstrating various techniques with visuals, or suggesting online resources for further study. 
+
+Now，if you understand，you just need to answer ‘Yes’.
+
+My first suggestion request is "I have a dataset with CSV labels. How to split it to train-dataset and test-dataset?"
+
+# 4.图像分类backbone
+
+**Please provide me with a PyTorch implementation of a custom dataset class, named `Train_test`, for handling train and test datasets. The class should inherit from `Dataset`, read data from a CSV file, apply image transformations, and return the transformed images along with their labels when required**
+
+# 5.Tips
+
+## 1.使用分隔符
+
+1.'''     '''
+
+2."""  
+
+3.---
+
+4.< >
+
+5.**<tag>  </tag>**
+
+## 2.写清晰和具体的Prompt 
+
+## 3.给model时间去think
+
+## 1.按步骤一个一个来
+
+## 2.在得到结果之前，指示模型去推理自己的解决方法是否正确，然后用它的方法与自己的方法进行比较
+
+
+
+# example1
+
+我现在有一个excel文件，第一列是相似度值有10个，第二列是预测值，只有一个，第三列是真实值，也是一个，如何通过BP网络，实现输入第一列和第二列的数据，来预测真实值，并输出第一列和第二列的权重大小，对预测真实值的贡献
+
+
+
+# 改善Prompt的提示词
+
+我试图在以下提示下从 GPT-4 获得良好的结果：“<font color='red'>你的提示词</font>”。你能写一个更好的提示，对 GPT-4 来说更优化，并会产生更好的结果吗？

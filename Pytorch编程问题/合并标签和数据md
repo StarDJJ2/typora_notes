@@ -1,0 +1,55 @@
+# 1.torch.utils.data.TensorDataset
+
+如果你只有PyTorch,也可以非常容易地将输入特征和目标标签合并到一个数据集中。
+
+你可以使用`torch.utils.data.TensorDataset`来构建数据集:
+
+```python
+from torch.utils.data import TensorDataset
+
+# 创建 TensorDataset
+dataset = TensorDataset(torch.from_numpy(x_train), torch.from_numpy(y_train))
+
+# 从 TensorDataset 中获取示例
+feature, label = dataset[0]
+```
+
+具体步骤:
+
+1. 将 NumPy 数组转换为 PyTorch Tensor
+
+```python
+x_train = torch.from_numpy(x_train) 
+y_train = torch.from_numpy(y_train)
+```
+
+2. 使用 TensorDataset 合并输入特征和标签
+
+```python
+dataset = TensorDataset(x_train, y_train)
+```
+
+3. 获取示例
+
+```python
+feature, label = dataset[0] 
+```
+
+`feature` 就是一个输入特征,`label`是一个对应的标签。
+
+你也可以构建验证集和测试集的数据集:
+
+```python
+test_dataset = TensorDataset(torch.from_numpy(x_test), torch.from_numpy(y_test))
+```
+
+然后就是常规的数据迭代 stepped:
+
+```python 
+train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=batch_size)
+```
+
+通过`train_loader`和`test_loader`你就可以迭代你的数据集了。
+
+希望这个PyTorch版本的示例能帮助你!让我知道如果你还有任何问题。

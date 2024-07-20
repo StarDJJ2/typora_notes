@@ -1,0 +1,1 @@
+[C++ 中的 const（指针常量与常量指针） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/151797945)

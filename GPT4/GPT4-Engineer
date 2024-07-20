@@ -1,0 +1,62 @@
+# 1.帮我写模型+训练循环+代码（PM2.5回归预测）
+
+请使用pytorch框架 写一段代码 代码要求如下:
+1.将一个文件夹中的图片和同一目录下且与图片一一对应的CSV标签文件分割为0.7的训练集0.2的验证集和0.1测试集用于预测回归任务（要注意这个CSV标签文件包含表头，读取时去掉表头）
+
+2.图片要进行水平翻转和正则化的数据增强操作
+
+3.将训练损失和验证损失都打印出来
+
+4.训练后进行验证，然后在每个轮次之后计算验证损失。如果验证损失比之前的最佳验证损失更低，我们将更新`best_valid_loss`，并将其打印出来
+
+5.验证完成后再使用测试循环对测试集进行测试并输出测试精度
+
+6.使用ResNet34网络结构 从零开始训练网络的权重参数
+
+7.初始化网络权重参数
+
+8.使用MSELoss损失函数和SGD优化器
+9.将训练Epoch设置为15
+
+10.训练完成且测试结束后利用Matplotlib库画出Train_loss和val_loss的曲线图
+11.将训练权重保存在当前路径下
+12.最后用一小段代码构造输入一张图片 然后输出回归预测的PM2.5数值
+
+## 2.将最好的验证损失保留并打印出来
+
+首先执行训练循环，然后在每个轮次之后计算验证损失。如果验证损失比之前的最佳验证损失更低，我们将更新`best_valid_loss`并保存当前模型的权重。在训练结束后，我们将这些最佳权重加载到模型中，并将它们保存到磁盘上的`best_model.pth`文件。
+
+
+
+# 2.初始化Resnet18网络权重参数
+
+现在我使用的神经网络模型是torchvision.models中自带的Resnet18，并且不使用它的预训练权重，所以现在请你帮我写一段代码  初始化它的权重参数
+
+此代码片段使用 He 初始化（也称为 Kaiming 初始化），这对于使用 ReLU 激活函数的网络（如 ResNet）非常适用。
+
+```python
+import torch
+import torch.nn as nn
+from torchvision import models
+
+def initialize_weights(model):
+    for module in model.modules():
+        if isinstance(module, (nn.Conv2d, nn.Linear)):
+            nn.init.kaiming_normal_(module.weight, mode='fan_out', nonlinearity='relu')
+            if module.bias is not None:
+                nn.init.constant_(module.bias, 0)
+        elif isinstance(module, nn.BatchNorm2d):
+            nn.init.constant_(module.weight, 1)
+            nn.init.constant_(module.bias, 0)
+
+# Load the ResNet18 model without pre-trained weights
+resnet18 = models.resnet18(pretrained=False)
+
+# Initialize the weights of the model
+initialize_weights(resnet18)
+```
+
+这段代码首先定义了一个名为 `initialize_weights` 的函数，该函数负责遍历模型的所有层并根据层的类型初始化权重。对于卷积层（`nn.Conv2d`）和全连接层（`nn.Linear`），我们使用 He 初始化。对于批量归一化层（`nn.BatchNorm2d`），权重被初始化为 1，偏置被初始化为 0。
+
+然后，我们加载一个没有预训练权重的 ResNet18 模型，并使用 `initialize_weights` 函数初始化模型的权重。现在，您可以使用这个随机初始化权重的模型进行训练。
+

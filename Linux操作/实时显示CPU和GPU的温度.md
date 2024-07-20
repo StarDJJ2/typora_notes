@@ -1,0 +1,1 @@
+[Ubuntu 系统实时查看CPU温度和GPU温度_ubuntu sensors-CSDN博客](https://blog.csdn.net/qq_39779233/article/details/129600514#:~:text=Ubuntu 系统实时查看CPU和GPU温度： 方式一：lm-sensors 安装 lm-sensors ： sudo apt,lm-sensors 1 实时查看CPU和GPU 的温度（每1s刷新一次）： watch -n 1 sensors)
